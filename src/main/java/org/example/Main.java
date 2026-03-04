@@ -4,6 +4,7 @@ import org.example.Exercice2.Calculator;
 import org.example.Exercice2.Reader;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -16,9 +17,7 @@ public class Main {
         list = reader.readFile("src/main/java/org/example/Exercice2/texte.txt");
         System.out.println("-------------------- Exercice 2 : --------------------");
         Calculator.numberOfLines(list);
-        Calculator.numberOfWord(list);
+        Calculator.numberOfWord(Collections.singletonList("Bonjour, le monde !"));
         Calculator.top5Words(list);
-
-
         }
     }

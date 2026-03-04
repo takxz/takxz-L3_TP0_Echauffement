@@ -6,21 +6,23 @@ import java.util.stream.Collectors;
 
 public class Calculator {
 
-    public static void numberOfLines(List<String> list) {
+    public static int numberOfLines(List<String> list) {
         System.out.println("Number of lines: " + list.size());
+        return list.size();
     }
 
-    public static void numberOfWord(List<String> list){
+    public static int numberOfWord(List<String> list){
         int numberOfWord = 0;
         for (Object o : list) {
-            String str = o.toString();
-            String[] words = str.split(" ");
+            String str = o.toString().replaceAll("[^a-zA-ZÀ-ÿ\\s]", "");
+            String[] words = str.split("\\s+");
             numberOfWord += words.length;
         }
         System.out.println("Nombre de mots : " + numberOfWord);
+        return numberOfWord;
     }
 
-    public static void top5Words(List<String> list) {
+    public static Map<String, Long> top5Words(List<String> list) {
         Map<String, Long> wordCount = list.stream()
                 .flatMap(line -> List.of(line.split("\\s+")).stream())
                 .filter(word -> !word.isEmpty())
@@ -32,6 +34,7 @@ public class Calculator {
                 .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
                 .limit(5)
                 .forEach(entry -> System.out.println("  " + entry.getKey() + " : " + entry.getValue()));
+        return wordCount;
     }
 
 }
