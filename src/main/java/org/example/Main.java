@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.Exercice2.Calculator;
 import org.example.Exercice2.Reader;
+import org.example.Exercice4.Poke_info;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,5 +20,13 @@ public class Main {
         Calculator.numberOfLines(list);
         Calculator.numberOfWord(Collections.singletonList("Bonjour, le monde !"));
         Calculator.top5Words(list);
+
+        System.out.println("-------------------- Exercice 4 : --------------------");
+        try {
+            Poke_info pokeInfo = new Poke_info();
+            pokeInfo.getPokemonInfo("ezrzerez");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         }
     }
