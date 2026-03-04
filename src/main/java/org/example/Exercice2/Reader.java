@@ -12,6 +12,7 @@ public class Reader {
         File myObj = new File(filename);
         List<String> lines = new ArrayList<>();
 
+        //Ici, chaque ligne est un élément de la liste
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
@@ -22,17 +23,5 @@ public class Reader {
             e.printStackTrace();
         }
         return lines;
-    }
-
-    public static List cleanList(List list){
-        String str = list.toString().replaceAll("([\\p{P}\\p{S}])", "");
-
-        list = str.lines().toList();
-
-        return list;
-    }
-
-    public static void printList(List list){
-        System.out.println("List: " + list);
     }
 }
